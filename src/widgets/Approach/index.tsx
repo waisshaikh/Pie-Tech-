@@ -26,11 +26,12 @@ const Approach: FC<Props> = () => {
         {/* SECTION TITLE */}
         <SectionTitle
           title="APPROACH."
-          classes="
+          className="
             px-[6vw] md:px-[3vw]
             pt-[2.5vw]
             top-0
             z-20
+            
           "
         />
 

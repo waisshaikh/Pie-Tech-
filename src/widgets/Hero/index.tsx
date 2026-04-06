@@ -2,153 +2,94 @@
 
 
 
-
-
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRef } from 'react';
 
-import useFloatingImages from '@/composables/useFloatingImages';
-import { main_1, main_2, main_3 } from './images';
+import { main_1 } from './images';
 
 const Hero = () => {
-  const ref1 = useRef<HTMLDivElement | null>(null);
-  const ref2 = useRef<HTMLDivElement | null>(null);
-  const ref3 = useRef<HTMLDivElement | null>(null);
-  const containerRef = useRef<HTMLElement | null>(null);
-
-  const { manageMouseMove } = useFloatingImages(ref1, ref2, ref3);
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start start', 'end start'],
-  });
-
-  const textOpacity = useTransform(scrollYProgress, [0, 0.35], [1, 0]);
-  const textScale = useTransform(scrollYProgress, [0, 0.35], [1, 0.95]);
-  const imageY = useTransform(scrollYProgress, [0, 1], ['0%', '12%']);
-
   return (
     <section
-      ref={containerRef}
       id="home"
-      className="relative h-screen md:h-[85vh] overflow-hidden bg-gradient-to-b"
+      className="relative min-h-screen overflow-hidden"
     >
-      {/* ================= CONTENT ================= */}
-      <div
-        onMouseMove={(e) => manageMouseMove(e)}
-        className="relative z-20 flex h-full w-full flex-col items-center justify-center px-[6vw] text-center"
-      >
-        <motion.div
-          style={{ opacity: textOpacity, scale: textScale }}
-          className="flex max-w-[1100px] flex-col items-center"
-        >
-          {/* ========= AGENCY NAME ========= */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="mb-[1.2vw] flex items-center gap-[0.8vw] md:mb-[3vw]"
-          >
-            <span className="h-[2px] w-[3vw] bg-text-1/40" />
+      {/* ===== Background Image ===== */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src={main_1}
+          fill
+          priority
+          alt="digital marketing agency"
+          className="object-cover"
+          quality={85}
+        />
+      </div>
 
-            <span className="text-[1.1vw] font-semibold uppercase tracking-[0.35em] text-text-1/80 md:text-[3vw]">
+      {/* ===== Dark Overlay ===== */}
+      <div className="absolute inset-0 z-10 bg-black/50" />
+
+      {/* ===== Main Content ===== */}
+      <div className="relative z-20 flex min-h-screen flex-col items-center justify-center px-6 text-center md:px-12">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="max-w-5xl"
+        >
+          {/* Agency Name */}
+          <div className="mb-6 flex items-center justify-center gap-3 md:mb-8">
+            <span className="h-[2px] w-10 bg-white/40" />
+
+            <span className="text-sm font-semibold uppercase tracking-[0.3em] text-white/80 md:text-lg">
               Pie
             </span>
 
-            <span
-              className="bg-gradient-to-r from-[#b08968] via-[#ddb892] to-[#b08968]
-              bg-clip-text text-[1.3vw] font-extrabold tracking-wider text-transparent
-              drop-shadow-md md:text-[3.4vw]"
-            >
+            <span className="bg-gradient-to-r from-[#b08968] via-[#ddb892] to-[#b08968] bg-clip-text text-lg font-extrabold tracking-wide text-transparent md:text-2xl">
               Tech Solutions
             </span>
 
-            <span className="h-[2px] w-[3vw] bg-text-1/40" />
-          </motion.div>
+            <span className="h-[2px] w-10 bg-white/40" />
+          </div>
 
-          {/* ========= MAIN HEADING ========= */}
-          <motion.h1
-            initial={{ opacity: 0, y: 60 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: 'easeOut' }}
-            className="text-[4.5vw] font-extrabold leading-[1.15] text-text-1 md:text-[7vw]"
-          >
+          {/* Heading */}
+          <h1 className="text-4xl font-extrabold leading-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
             Building Digital Growth
             <br />
             For Modern Brands
-          </motion.h1>
+          </h1>
 
-          {/* ========= SUB HEADING ========= */}
-          <motion.p
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3 }}
-            className="mt-[1.8vw] text-[1.4vw] font-medium leading-[1.6] text-text-1/75
-              md:mt-[3vw] md:text-[3.2vw]"
-          >
+          {/* Subheading */}
+          <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-white/80 sm:text-lg md:text-xl">
             We help businesses grow with{' '}
-            <span className="font-semibold">Digital Marketing</span>,{' '}
-            <span className="font-semibold">Web & App Development</span>, and{' '}
-            <span className="font-semibold">Creative Solutions</span> that convert.
-          </motion.p>
+            <span className="font-semibold text-white">Digital Marketing</span>,{' '}
+            <span className="font-semibold text-white">Web & App Development</span>, and{' '}
+            <span className="font-semibold text-white">Creative Solutions</span> that convert.
+          </p>
 
-          {/* ========= CTA BUTTONS ========= */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-[3vw] flex gap-[1.5vw] md:mt-[6vw] md:gap-[3vw]"
-          >
-            <Link href="/contact">
-              <button
-                className="rounded-full bg-text-1 px-[2.5vw] py-[1vw]
-                text-[1.1vw] font-semibold text-black transition hover:scale-105
-                md:px-[6vw] md:py-[2.5vw] md:text-[3vw]"
-              >
-                Get Free Consultation
-              </button>
+          {/* CTA Buttons */}
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Link
+              href="/contact"
+              className="rounded-full bg-white px-8 py-3 text-sm font-semibold text-black transition-transform duration-300 hover:scale-105 md:px-10 md:py-4 md:text-base"
+            >
+              Get Free Consultation
             </Link>
 
-            <Link href="/services">
-              <button
-                className="rounded-full border border-text-1/30 px-[2.5vw] py-[1vw]
-                text-[1.1vw] font-semibold text-text-1 transition hover:bg-text-1/10
-                md:px-[6vw] md:py-[2.5vw] md:text-[3vw]"
-              >
-                View Services
-              </button>
+            <Link
+              href="/services"
+              className="rounded-full border border-white/40 px-8 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-white/10 md:px-10 md:py-4 md:text-base"
+            >
+              View Services
             </Link>
-          </motion.div>
+          </div>
         </motion.div>
       </div>
-
-      {/* ================= FLOATING BACKGROUND IMAGES ================= */}
-      <motion.div ref={ref1} style={{ y: imageY }} className="absolute inset-0 z-[5]">
-        <Image src={main_1} fill priority alt="digital marketing agency" className="object-cover" />
-      </motion.div>
-
-      <motion.div ref={ref2} style={{ y: imageY }} className="absolute inset-0 z-[3]">
-        <Image src={main_2} fill alt="creative development" className="object-cover" />
-      </motion.div>
-
-      <motion.div ref={ref3} style={{ y: imageY }} className="absolute inset-0 z-[1]">
-        <Image src={main_3} fill alt="technology solutions" className="object-cover" />
-      </motion.div>
-
-      {/* ================= OVERLAY ================= */}
-      <div className="pointer-events-none absolute inset-0 z-[15] bg-black/40" />
     </section>
   );
 };
 
 export default Hero;
-
-
-
-
-
 

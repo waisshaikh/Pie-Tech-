@@ -377,19 +377,19 @@ export default function ServicesPage() {
           </p>
 
           {/* BUTTONS */}
-          <div className="mt-6 flex flex-col justify-center gap-4 sm:flex-row">
+          <div className="mt-6 flex flex-col gap-4 sm:flex-row">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-full bg-black px-8 py-3 font-semibold text-white transition hover:scale-105 hover:bg-black/90 sm:px-10"
+              className="rounded-full bg-orange-500 px-6 py-3 text-center font-semibold text-white transition hover:scale-105 hover:bg-orange-600"
             >
               🚀 Get Free Consultation
             </Link>
 
             <Link
-              href="/portfolio"
-              className="inline-flex items-center justify-center rounded-full border border-black px-8 py-3 font-semibold text-black transition hover:scale-105 hover:bg-black hover:text-white sm:px-10"
+              href="/services"
+              className="rounded-full border border-gray-300 px-6 py-3 text-center font-semibold text-black transition hover:bg-black hover:text-white dark:text-white"
             >
-              View Our Work
+              Explore Services
             </Link>
           </div>
 
@@ -400,7 +400,7 @@ export default function ServicesPage() {
         </div>
       </motion.div>
       {/* CONTACT INFO */}
-      <section className="mt-20 text-center">
+      {/* <section className="mt-20 text-center">
         <h3 className="text-2xl font-semibold text-black dark:text-white">Still have questions?</h3>
 
         <p className="mt-2 text-gray-600 dark:text-gray-400">Talk to our team directly — we’re here to help you.</p>
@@ -418,7 +418,7 @@ export default function ServicesPage() {
             💬 WhatsApp Chat
           </a>
         </div>
-      </section>
+      </section> */}
     </section>
   );
 }

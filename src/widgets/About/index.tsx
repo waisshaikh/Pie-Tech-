@@ -7,43 +7,38 @@ export default function About() {
     <section
       className="
         relative
-        border-t
-        border-gray-200 dark:border-white/10
+        
         px-[6vw]
-        py-[12vw] md:py-[10vw]
-        bg-white dark:bg-bg-1
+        py-[12vw] md:py-[10vw] lg:py-[8vw]
       "
     >
-      {/* SMALL TAGLINE */}
+      {/* ===== Small Tagline ===== */}
       <p
         className="
-          mb-[4vw]
-          text-center
-          text-[3.9vw] md:text-[2.4vw] lg:text-[4.4vw]
-          tracking-[0.4em]
-          uppercase
-          text-gray-500 dark:text-gray-400
-        "
+    mb-[4vw]
+    text-center
+    text-[7vw] uppercase tracking-[0.35em]
+    text-gray-500 dark:text-gray-400
+    md:text-[3vw]
+    lg:text-[1.8vw]
+  "
       >
         BUILT ON STRATEGY. DRIVEN BY TRUST.
       </p>
 
-      {/* MAIN SCROLL TEXT */}
+      {/* ===== Main Scroll Text ===== */}
       <ScrollHighlightText
-        text={`
-        The story of Pie Tech Solutions begins with trust.
-        We believe in partnering with ambitious brands,
-        building meaningful digital experiences,
-        and delivering technology that drives real growth.
-        `}
+        text="The story of Pie Tech Solutions begins with trust. We believe in partnering with ambitious brands, building meaningful digital experiences, and delivering technology that drives real growth."
         className="
-          font-serif
+          mx-auto max-w-[1100px]
           text-center
-          text-[6vw] md:text-[4.5vw] lg:text-[5.4vw]
+          font-serif
+          text-[6vw]
           leading-[1.2]
-          text-gray-600 dark:text-gray-500
+          text-gray-400 dark:text-gray-600
+          md:text-[4vw]
+          lg:text-[3vw]
         "
-        highlightColor="text-black dark:text-white"
       />
     </section>
   );
