@@ -5,6 +5,7 @@ import Approach from '@/widgets/Approach';
 import CallToAction from '@/widgets/CallToAction';
 import Hero from '@/widgets/Hero';
 import Services from '@/widgets/Services';
+import FinalCTA from '@/widgets/FinalCTA';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Services />
       <Approach />
       <CallToAction />
+      <FinalCTA />
     </main>
   );
 }

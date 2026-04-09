@@ -1,23 +1,18 @@
 'use client';
 
-import { LogoIcon } from "@/icons/ApproachIcons/LogoIcon";
-import {
-  Facebook,
-  Instagram,
-  Linkedin,
-  Mail,
-} from "lucide-react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { LogoIcon } from '@/icons/ApproachIcons/LogoIcon';
+import { Facebook, Instagram, Linkedin, Mail } from 'lucide-react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 /* ================= NAV LINKS ================= */
 
 const NAV_LINKS = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Services", href: "/services" },
-  { name: "Approach", href: "/approach" },
-  { name: "Contact", href: "/contact" },
+  { name: 'Home', href: '/' },
+  { name: 'About', href: '/about' },
+  { name: 'Services', href: '/services' },
+  { name: 'Approach', href: '/approach' },
+  { name: 'Contact', href: '/contact' },
 ];
 
 export default function Footer() {
@@ -27,8 +22,8 @@ export default function Footer() {
     <footer
       className="
       border-t
-      border-gray-200 dark:border-white/10
-      bg-white dark:bg-bg-1
+      border-gray-200 
+      bg-gradient-to-br from-black via-gray-900 to-black
       "
     >
       <div
@@ -39,7 +34,6 @@ export default function Footer() {
         text-gray-600 dark:text-gray-400
         "
       >
-
         {/* ================= LOGO ================= */}
 
         <div className="mb-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -61,23 +55,23 @@ export default function Footer() {
           {[
             {
               Icon: Mail,
-              href: "mailto:contact@pietechsolutions.com",
-              label: "Email",
+              href: 'mailto:contact@pietechsolutions.com',
+              label: 'Email',
             },
             {
               Icon: Instagram,
-              href: "https://www.instagram.com/pietechsolutions",
-              label: "Instagram",
+              href: 'https://www.instagram.com/pietechsolutions',
+              label: 'Instagram',
             },
             {
               Icon: Facebook,
-              href: "https://www.facebook.com/pietechsolutions",
-              label: "Facebook",
+              href: 'https://www.facebook.com/pietechsolutions',
+              label: 'Facebook',
             },
             {
               Icon: Linkedin,
-              href: "https://www.linkedin.com/company/pietechsolutions",
-              label: "LinkedIn",
+              href: 'https://www.linkedin.com/company/pietechsolutions',
+              label: 'LinkedIn',
             },
           ].map(({ Icon, href, label }, index) => (
             <Link
@@ -89,11 +83,11 @@ export default function Footer() {
               className="
               flex h-10 w-10 items-center justify-center
               rounded-full
-              border border-gray-200 dark:border-white/10
-              text-gray-600 dark:text-gray-400
+              border border-gray-200 text-gray-600
               transition-all duration-300
-              hover:border-gray-400 dark:hover:border-white/30
-              hover:text-black dark:hover:text-white
+              hover:border-gray-400 hover:text-black
+              dark:border-white/10 dark:text-gray-400
+              dark:hover:border-white/30 dark:hover:text-white
               "
             >
               <Icon size={20} />
@@ -113,9 +107,7 @@ export default function Footer() {
           "
         >
           {NAV_LINKS.map((link) => {
-            const isActive =
-              pathname === link.href ||
-              (link.href !== "/" && pathname.startsWith(link.href));
+            const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href));
 
             return (
               <Link
@@ -125,8 +117,8 @@ export default function Footer() {
                 relative transition-all duration-300
                 ${
                   isActive
-                    ? "text-black dark:text-white after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-black dark:after:bg-white"
-                    : "text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white"
+                    ? 'text-black after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:bg-black dark:text-white dark:after:bg-white'
+                    : 'text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white'
                 }
                 `}
               >

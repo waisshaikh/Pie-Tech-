@@ -44,7 +44,7 @@ const STEPS = [
 
 export default function ApproachPage() {
   return (
-    <section className="relative overflow-hidden bg-white dark:bg-black">
+    <section className="relative overflow-hidden bgblack">
       {/* ===== BACKGROUND DECOR ===== */}
       <div className="absolute inset-0 -z-10 opacity-20 blur-3xl">
         <div className="absolute left-0 top-0 h-72 w-72 rounded-full bg-orange-400" />

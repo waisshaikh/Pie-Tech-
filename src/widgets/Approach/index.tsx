@@ -17,7 +17,7 @@ const Approach: FC<Props> = () => {
       className="
         border-t
         border-gray-200 dark:border-gray-1
-        bg-white dark:bg-bg-1
+        bg-white dark:bg-black
         py-[10vw] md:py-[8vw]
         pb-[14vw] md:pb-[10vw]
       "
