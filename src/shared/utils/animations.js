@@ -1,15 +1,45 @@
 export const menuSlide = {
-  initial: { x: 'calc(100% + 100px)' },
-  enter: { x: '0', transition: { duration: 0.6, ease: [0.645, 0.045, 0.355, 1] } },
-  exit: { opacity: 0, transition: { duration: 0.4, ease: [0.645, 0.045, 0.355, 1] } },
+  initial: { x: '100%' },
+
+  enter: {
+    x: 0,
+    transition: {
+      duration: 0.45,
+      ease: [0.22, 1, 0.36, 1], // smooth & fast
+    },
+  },
+
+  exit: {
+    x: '100%',
+    transition: {
+      duration: 0.35,
+      ease: [0.4, 0, 1, 1],
+    },
+  },
 };
 
 export const slide = {
-  initial: { x: 40 },
-  enter: (i) => ({ x: 0, transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.05 * i } }),
+  initial: { x: 30, opacity: 0 },
+
+  enter: (i: number) => ({
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.4,
+      ease: [0.22, 1, 0.36, 1],
+      delay: i * 0.05,
+    },
+  }),
 };
 
 export const scale = {
-  open: { scale: 1, transition: { duration: 0.3, delay: 0.1 } },
-  closed: { scale: 0, transition: { duration: 0.1 } },
+  open: {
+    scale: 1,
+    transition: { duration: 0.2, ease: 'easeOut' },
+  },
+
+  closed: {
+    scale: 0,
+    transition: { duration: 0.15, ease: 'easeIn' },
+  },
 };

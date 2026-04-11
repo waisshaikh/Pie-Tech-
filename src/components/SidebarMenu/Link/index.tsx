@@ -1,6 +1,5 @@
+import { scale, slide } from '@/shared/utils/animations';
 import { motion } from 'framer-motion';
-import { slide, scale } from '@/shared/utils/animations';
-
 import { FC } from 'react';
 
 interface Props {
@@ -10,12 +9,17 @@ interface Props {
   handleClick: () => void;
 }
 
-const Index: FC<Props> = ({ data, isActive, setSelectedIndicator, handleClick }) => {
+const Index: FC<Props> = ({
+  data,
+  isActive,
+  setSelectedIndicator,
+  handleClick,
+}) => {
   const { title, href, index } = data;
 
   return (
     <motion.div
-      className="relative flex items-center"
+      className="relative flex items-center gap-3 group cursor-pointer"
       onMouseEnter={() => setSelectedIndicator(href)}
       custom={index}
       variants={slide}
@@ -24,15 +28,40 @@ const Index: FC<Props> = ({ data, isActive, setSelectedIndicator, handleClick })
       exit="exit"
       onClick={handleClick}
     >
+      {/*  Indicator Dot */}
       <motion.div
-        className="absolute left-0 inline-block h-[0.6vw] w-[0.6vw] rounded-full bg-white"
+        className="h-2 w-2 rounded-full bg-white"
         variants={scale}
         animate={isActive ? 'open' : 'closed'}
-      ></motion.div>
-      <div tabIndex={0} className="cursor-pointer text-[2.5vw] md:text-[3vw] leading-[1.35] md:leading-[1.25] font-semibold tracking-wide duration-200  transition-[cubic-bezier(.16,1,.3,1)] hover:translate-x-[1.6vw]">
+      />
+
+      {/*  Text */}
+      <motion.div
+        tabIndex={0}
+        className={`
+          text-xl sm:text-2xl md:text-3xl
+          font-semibold tracking-wide
+          transition-all duration-300
+          ${
+            isActive
+              ? 'text-white'
+              : 'text-white/60 group-hover:text-white'
+          }
+        `}
+        whileHover={{ x: 8 }}
+      >
         {title}
-      </div>
+      </motion.div>
+
+      {/*  Underline (premium touch) */}
+      <motion.span
+        className="absolute left-0 -bottom-1 h-[2px] bg-white"
+        initial={{ width: 0 }}
+        animate={{ width: isActive ? '100%' : 0 }}
+        transition={{ duration: 0.3 }}
+      />
     </motion.div>
   );
 };
+
 export default Index;

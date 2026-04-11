@@ -12,11 +12,13 @@
   margin: 0;
 }
 
-/* Text selection */
+/* ================= ROOT VARIABLES ================= */
 
-::selection {
-  background-color: #CCC2DC;
-  color: white;
+:root {
+  --bg-primary: #0a0a0a;
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
+  --accent: #f97316;
 }
 
 /* ================= HTML & BODY ================= */
@@ -27,14 +29,18 @@ html {
 
 body {
   font-family: 'Montserrat', sans-serif;
-
-  @apply bg-bg-1 text-text-1;
-
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   min-height: 100vh;
 
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ================= TEXT SELECTION ================= */
+
+::selection {
+  background-color: #ccc2dc;
+  color: #000;
 }
 
 /* ================= LINKS ================= */
@@ -56,11 +62,11 @@ a {
   }
 
   .container-main {
-    @apply mx-auto max-w-[1200px] px-6;
+    @apply mx-auto max-w-7xl px-6;
   }
 
   .section-padding {
-    @apply py-24 md:py-32;
+    @apply py-20 md:py-28 lg:py-32;
   }
 }
 
@@ -78,15 +84,10 @@ a {
   content: "";
   position: absolute;
   left: 0;
-
   width: 100%;
   height: 2px;
-
   background-color: currentColor;
-
-  transition:
-    transform 0.3s ease,
-    top 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .burger::before {
@@ -97,6 +98,7 @@ a {
   top: 12px;
 }
 
+/* Active State */
 .burgerActive::before {
   transform: rotate(45deg);
   top: 6px;
@@ -126,8 +128,12 @@ input[type="number"] {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #303030;
+  background: #404040;
   border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #666;
 }
 
 ::-webkit-scrollbar-track {
@@ -135,91 +141,3 @@ input[type="number"] {
 }
 
 
-
-// @tailwind base;
-// @tailwind components;
-// @tailwind utilities;
-
-// * {
-//   box-sizing: border-box;
-//   padding: 0;
-//   margin: 0;
-
-//   &::selection {
-//     @apply bg-primary text-bg-1;
-//   }
-// }
-
-// html,
-// body {
-//   font-family: 'Montserrat', sans-serif;
-//   @apply text-text-1;
-// }
-
-// html {
-//   color-scheme: dark;
-// }
-
-// body {
-// }
-
-// a {
-//   color: inherit;
-//   text-decoration: none;
-// }
-
-// @layer utilities {
-//   .text-balance {
-//     text-wrap: balance;
-//   }
-//   .align-center {
-//     text-align: center;
-//   }
-// }
-
-// //navigation
-// .burger {
-//   width: 100%;
-//   &::after,
-//   &::before {
-//     content: '';
-//     display: block;
-//     height: 0.2vw;
-//     width: 40%;
-//     margin: auto;
-//     background-color: #404040;
-//     position: relative;
-//     transition: transform 0.3s;
-//   }
-
-//   &::after {
-//     top: -0.3vw;
-//   }
-
-//   &::before {
-//     top: 0.3vw;
-//   }
-// }
-
-// .burgerActive {
-//   &::after {
-//     transform: rotate(45deg);
-//     top: -0.1vw;
-//   }
-
-//   &::before {
-//     transform: rotate(-45deg);
-//     top: 0px;
-//   }
-// }
-
-// input::-webkit-outer-spin-button,
-// input::-webkit-inner-spin-button {
-//   -webkit-appearance: none;
-//   margin: 0;
-// }
-
-// /* Firefox */
-// input[type='number'] {
-//   -moz-appearance: textfield;
-// }
