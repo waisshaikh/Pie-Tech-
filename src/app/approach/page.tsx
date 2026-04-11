@@ -81,7 +81,7 @@ export default function ApproachPage() {
               href="/contact"
               className="rounded-full bg-orange-500 px-6 py-3 text-center font-semibold text-white transition hover:scale-105 hover:bg-orange-600"
             >
-              🚀 Get Free Consultation
+               Get Free Consultation
             </a>
 
             <a
@@ -174,7 +174,7 @@ export default function ApproachPage() {
                   href="/contact"
                   className="rounded-full bg-black px-6 py-3 text-sm font-semibold text-white transition hover:scale-105 hover:bg-black/90 sm:px-8 sm:py-3.5 sm:text-base"
                 >
-                  🚀 Get Free Consultation
+                   Get Free Consultation
                 </Link>
 
                 <Link
@@ -220,13 +220,12 @@ export default function ApproachPage() {
                 Let’s collaborate and turn your idea into a high-performing digital product.
               </p>
               {/* BUTTONS */}
-              import Link from "next/link";
               <div className="mt-6 flex flex-col gap-4 sm:flex-row">
                 <Link
                   href="/contact"
                   className="rounded-full bg-orange-500 px-6 py-3 text-center font-semibold text-white transition hover:scale-105 hover:bg-orange-600"
                 >
-                  🚀 Get Free Consultation
+                 Get Free Consultation
                 </Link>
 
                 <Link
@@ -431,7 +430,7 @@ export default function ApproachPage() {
             <div className="relative z-10">
               {/* HEADING */}
               <h2 className="text-xl font-bold leading-tight text-black sm:text-2xl md:text-3xl lg:text-4xl">
-                Ready to Build Your Next Big Product? 🚀
+                Ready to Build Your Next Big Product? 
               </h2>
 
               {/* TEXT */}
@@ -446,7 +445,7 @@ export default function ApproachPage() {
                   href="/contact"
                   className="rounded-full bg-black px-6 py-3 text-sm font-semibold text-white transition hover:scale-105 hover:bg-black/90 sm:px-8 sm:py-3.5 sm:text-base"
                 >
-                  🚀 Start Your Project
+                   Start Your Project
                 </Link>
 
                 <Link
