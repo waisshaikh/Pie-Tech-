@@ -1,14 +1,16 @@
 'use client';
 
-import { ButtonHTMLAttributes, FC } from 'react';
+import { ButtonHTMLAttributes, FC, ReactNode } from 'react';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   title: string;
   variant?: 'primary' | 'secondary';
   loading?: boolean;
-  leftIcon?: React.ReactNode;
-  rightIcon?: React.ReactNode;
+  leftIcon?: ReactNode;
+  rightIcon?: ReactNode;
   className?: string;
+  classes?: string;
+  btnClasses?: string;
 }
 
 const Button: FC<Props> = ({
@@ -18,6 +20,8 @@ const Button: FC<Props> = ({
   leftIcon,
   rightIcon,
   className = '',
+  classes = '',
+  btnClasses = '',
   disabled,
   ...props
 }) => {
@@ -29,6 +33,7 @@ const Button: FC<Props> = ({
         rounded-xl p-[2px] overflow-hidden
         focus:outline-none focus:ring-2 focus:ring-orange-400/50
         disabled:opacity-60 disabled:cursor-not-allowed
+        ${btnClasses}
       `}
       {...props}
     >
@@ -49,7 +54,7 @@ const Button: FC<Props> = ({
               : 'bg-transparent text-orange-400 border border-orange-400 hover:bg-orange-400/10'
           }
 
-          ${className}
+          ${className} ${classes}
         `}
       >
         {/* Left Icon */}

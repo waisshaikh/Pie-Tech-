@@ -7,8 +7,14 @@ PLUGIN: Convert Tailwind colors into CSS variables
 Example: var(--primary)
 ================================================= */
 
-function addVariablesForColors({ addBase, theme }) {
-  const allColors = flattenColorPalette(theme("colors"));
+function addVariablesForColors({
+  addBase,
+  theme,
+}: {
+  addBase: (styles: Record<string, Record<string, string>>) => void;
+  theme: (path: string) => Record<string, string>;
+}) {
+  const allColors = flattenColorPalette(theme("colors")) as Record<string, string>;
 
   const newVars = Object.fromEntries(
     Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
@@ -30,12 +36,6 @@ module.exports = {
 
   theme: {
     extend: {
-      /* ================= BREAKPOINTS ================= */
-
-      screens: {
-        md: { max: "600px" },
-      },
-
       /* ================= COLORS ================= */
 
       colors: {
