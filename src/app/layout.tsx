@@ -1,4 +1,3 @@
-import { Montserrat } from 'next/font/google';
 import type { Metadata } from 'next';
 
 import ThemeProvider from '@/components/ThemeProvider';
@@ -7,11 +6,6 @@ import Footer from '@/widgets/Footer';
 import Header from '@/widgets/Header';
 
 import '@/shared/styles/globals.scss';
-
-const montserrat = Montserrat({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-});
 
 export const metadata: Metadata = {
   title: 'Pie Tech Solutions',
@@ -29,8 +23,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${montserrat.className} 
-        bg-white text-black 
+        className={`
+        bg-white text-black
         dark:bg-black dark:text-white 
         transition-colors duration-300`}
       >

@@ -42,7 +42,7 @@ const FinalCTA: FC = () => {
           </p>
 
           <p className="mx-auto mt-4 max-w-xl text-sm text-gray-400 sm:text-base">
-            Whether you're launching a new idea or upgrading your existing product, our team is ready to bring your
+            Whether you&apos;re launching a new idea or upgrading your existing product, our team is ready to bring your
             vision to life with modern design, clean code, and strategic thinking.
           </p>
 

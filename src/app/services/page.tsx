@@ -18,7 +18,7 @@ const stagger = {
 
 /* ================= SERVICES ================= */
 
-export const SERVICES = [
+const SERVICES = [
   {
     title: 'Digital Marketing',
     icon: <Megaphone className="text-orange-500 dark:text-orange-400" />,
@@ -372,7 +372,7 @@ export default function ServicesPage() {
 
           {/* DESCRIPTION */}
           <p className="mx-auto mt-4 max-w-2xl text-base text-black/90 sm:text-lg">
-            Whether you're launching a startup or scaling your business, we build high-performance digital solutions
+            Whether you&apos;re launching a startup or scaling your business, we build high-performance digital solutions
             that attract customers, boost conversions, and accelerate your growth.
           </p>
 
