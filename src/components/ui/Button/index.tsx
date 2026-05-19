@@ -1,6 +1,7 @@
 'use client';
 
 import { ButtonHTMLAttributes, FC, ReactNode } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   title: string;
@@ -28,13 +29,13 @@ const Button: FC<Props> = ({
   return (
     <button
       disabled={disabled || loading}
-      className={`
+      className={twMerge(`
         relative inline-flex items-center justify-center
         rounded-xl p-[2px] overflow-hidden
         focus:outline-none focus:ring-2 focus:ring-orange-400/50
         disabled:opacity-60 disabled:cursor-not-allowed
         ${btnClasses}
-      `}
+      `)}
       {...props}
     >
       {/* 🔥 Animated Border */}
@@ -42,7 +43,7 @@ const Button: FC<Props> = ({
 
       {/* 🔥 Inner Button */}
       <span
-        className={`
+        className={twMerge(`
           relative z-10 flex items-center gap-2
           px-6 py-3 rounded-xl
           font-semibold text-sm sm:text-base
@@ -55,7 +56,7 @@ const Button: FC<Props> = ({
           }
 
           ${className} ${classes}
-        `}
+        `)}
       >
         {/* Left Icon */}
         {leftIcon && !loading && <span>{leftIcon}</span>}
