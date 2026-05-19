@@ -1,19 +1,20 @@
-'use client'
+'use client';
 
 import { FC, useEffect } from 'react';
 
-import initCursor from '@/shared/utils/useShadowCursor'
+import initCursor from '@/shared/utils/useShadowCursor';
 
-interface Props { }
+interface Props {}
 
 const Index: FC<Props> = () => {
 
   useEffect(() => {
     initCursor();
-  }, [])
+  }, []);
+
   return (
-    <div className='h-screen w-full fixed top-0 left-0 z-[-1] '>
-      <canvas id="fluid" className='w-full h-full' />
+    <div className="pointer-events-none fixed left-0 top-0 z-[-1] h-screen w-full">
+      <canvas id="fluid" className="h-full w-full" />
     </div>
   );
 };

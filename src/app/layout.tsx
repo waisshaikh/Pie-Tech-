@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 
 import ThemeProvider from '@/components/ThemeProvider';
+import ShadowCursor from '@/components/ui/ShadowCursor';
 
 import Footer from '@/widgets/Footer';
 import Header from '@/widgets/Header';
@@ -30,6 +31,8 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <Header />
+
+          <ShadowCursor />
 
           <main className="pt-[80px] min-h-screen">
             {children}
